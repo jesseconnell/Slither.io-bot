@@ -1878,6 +1878,14 @@ var userInterface = window.userInterface = (function (window, document) {
                 if (e.keyCode === 71) {
                     userInterface.toggleGfx();
                 }
+                // Letter 'M' to zoom in
+                if (e.keyCode === 77) {
+                    window.desired_gsc = window.desired_gsc * 1.15;
+                }
+                // Letter 'N' to zoom out
+                if (e.keyCode === 78) {
+                    window.desired_gsc = window.desired_gsc / 1.15;
+                }
                 // Letter 'O' to change rendermode (visual)
                 if (e.keyCode === 79) {
                     userInterface.toggleMobileRendering(!window.mobileRender);
@@ -1990,7 +1998,7 @@ var userInterface = window.userInterface = (function (window, document) {
             oContent.push('[I] auto respawn: ' + ht(window.autoRespawn));
             oContent.push('[Y] visual debugging: ' + ht(window.visualDebugging));
             oContent.push('[U] log debugging: ' + ht(window.logDebugging));
-            oContent.push('[Mouse Wheel] zoom');
+            oContent.push('[Mouse Wheel] zoom - also [N]in and [M]out');
             oContent.push('[Z] reset zoom');
             oContent.push('[ESC] quick respawn');
             oContent.push('[Q] quit to menu');
@@ -2164,3 +2172,4 @@ var userInterface = window.userInterface = (function (window, document) {
     // Start!
     userInterface.oefTimer();
 })(window, document);
+
