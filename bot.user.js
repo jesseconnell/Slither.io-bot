@@ -121,9 +121,18 @@ var canvas = window.canvas = (function (window) {
         // Adjusts zoom in response to the mouse wheel.
         setZoom: function (e) {
             // Scaling ratio
+            var x = null;
             if (window.gsc) {
-                window.gsc *= Math.pow(0.9, e.wheelDelta / -120 || e.detail / 2 || 0);
-                window.desired_gsc = window.gsc;
+                if (window.desired_gsc) {
+                    x = window.desired_gsc;
+                } else {
+                    x = window.gsc;
+                }
+            }
+
+            if (x) {
+                x *= Math.pow(0.9, e.wheelDelta / -120 || e.detail / 2 || 0);
+                window.desired_gsc = x;
             }
         },
 
@@ -135,8 +144,13 @@ var canvas = window.canvas = (function (window) {
 
         // Maintains Zoom
         maintainZoom: function () {
+            var a = 0.75;
+            var b = 1.0 - a;
             if (window.desired_gsc !== undefined) {
-                window.gsc = window.desired_gsc;
+                window.gsc = a * window.gsc + b * window.desired_gsc;
+                if (Math.abs(window.gsc / window.desired_gsc - 1.0) < 0.01) {
+                    window.desired_gsc = window.gsc;
+                }
             }
         },
 
@@ -1934,7 +1948,7 @@ var userInterface = window.userInterface = (function (window, document) {
                         break;
                     // "Right click" to toggle bot in addition to the letter "T"
                     case 3:
-                        bot.isBotEnabled = !bot.isBotEnabled;
+                        // No, that sucksbot.isBotEnabled = !bot.isBotEnabled;
                         break;
                 }
             } else {
@@ -2172,4 +2186,3 @@ var userInterface = window.userInterface = (function (window, document) {
     // Start!
     userInterface.oefTimer();
 })(window, document);
-
