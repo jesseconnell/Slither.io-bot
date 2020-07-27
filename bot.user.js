@@ -7,14 +7,14 @@ The MIT License (MIT)
 */
 // ==UserScript==
 // @name         Slither.io Bot Championship Edition
-// @namespace    https://github.com/j-c-m/Slither.io-bot
+// @namespace    https://github.com/jesseconnell/Slither.io-bot
 // @version      3.0.5
 // @description  Slither.io Bot Championship Edition
 // @author       Jesse Miller
 // @match        http://slither.io/
-// @updateURL    https://github.com/j-c-m/Slither.io-bot/raw/master/bot.user.js
-// @downloadURL  https://github.com/j-c-m/Slither.io-bot/raw/master/bot.user.js
-// @supportURL   https://github.com/j-c-m/Slither.io-bot/issues
+// @updateURL    https://github.com/jesseconnell/Slither.io-bot/raw/master/bot.user.js
+// @downloadURL  https://github.com/jesseconnell/Slither.io-bot/raw/master/bot.user.js
+// @supportURL   https://github.com/jesseconnell/Slither.io-bot/issues
 // @grant        none
 // ==/UserScript==
 
